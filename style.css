@@ -31,7 +31,7 @@ body{
     margin: 2%;
     /*background: linear-gradient(to left, black, white);*/
     background: white;
-    color: black;
+    color: darkgoldenrod;
     text-align: center;
     padding: 2%;
     width: 100%;
@@ -41,8 +41,8 @@ body{
 #style:hover {
     /*background: darkblue;*/
     /*border-radius: 25%;*/
-    color:white;
-    background: linear-gradient(to right, black, white);
+    color:darkgoldenrod;
+    background: lightgrey;
 
 
     }
