@@ -7,36 +7,37 @@ function ItunesController(){
     itunesService.getMusicByArtist(artist).then(drawSongs);
   }
 
+
+
+document.addEventListener('play', function(e){
+var audios = document.getElementsByTagName('audio');
+for(var i = 0, len = audios.length; i < len;i++){
+    if(audios[i] != e.target){
+        audios[i].pause();
+    }
+}
+}, true);
+
+
+
   function drawSongs(songList){
     console.log(songList);
     // This is where you task begins
     var template = ''
     for(var key of songList){
-      var url = key.albumArt
-      var preview = key.preview
-      var artist = key.artist
-      var album = key.collection
-      var price = key.price
-      var title = key.title
       template += 
       `
     
       <div id="style" class="flex-cont">
-        <div>${title}</div>
-        <div><img src="${url}"></div>
-          <div>${artist}</div>
+        <div>${key.title}</div>
+        <div><img src="${key.albumArt}"></div>
+          <div>${key.artist}</div>
         <div>
-          <audio controls src=${preview}> Your user agent does not support the HTML5 Audio element. </audio>
+          <audio controls src=${key.preview}> Your user agent does not support the HTML5 Audio element. </audio>
         </div>
-        <div> ${album}</div>
-        <div>$${price} </div>
-      </div>
-    
-            `
-// <audio controls
-//   src=${preview}>
-// Your user agent does not support the HTML5 Audio element.
-// </audio>
+        <div> ${key.collection}</div>
+        <div>$${key.price} </div>
+      </div>`
     }
     document.getElementById("song-list").innerHTML = template
   }
@@ -46,15 +47,3 @@ function ItunesController(){
 
 
 var itunesCtrl = new ItunesController()
-
-
-//  this.drawDc = function(){
-//     var dcChars= comicService.getCharacters('dc')
-//     var template = `<ul>`
-//     for(var char of dcChars){
-//       var url = char.image || 'http://placehold.it/20x20'
-//       template+=`<li>${char.name} <img src="${url}" width="20"></li>`
-//     }
-//     template+=`</ul>`
-//     document.getElementById('dc').innerHTML = template
-//   }
