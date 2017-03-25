@@ -29,7 +29,6 @@ body{
 
 #style {
     margin: 2%;
-    /*background: linear-gradient(to left, black, white);*/
     background: white;
     color: darkgoldenrod;
     text-align: center;
@@ -39,8 +38,6 @@ body{
 
 }
 #style:hover {
-    /*background: darkblue;*/
-    /*border-radius: 25%;*/
     color:darkgoldenrod;
     background: lightgrey;
 
@@ -53,6 +50,3 @@ body{
     width: 10px;
 
 }
-
-/*<div class="flex-cont">
-</div>*/
